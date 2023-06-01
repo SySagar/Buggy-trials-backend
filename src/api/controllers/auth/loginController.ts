@@ -3,28 +3,27 @@ import {
   generateRefreshToken,
 } from "@utils/generateToken";
 import userTypes from "@controllers/auth/types/userTypes";
-import redisClientInit from "@config/redisConfig";
+import jwt from "jsonwebtoken";
 
-// const test = (req : any, res : any)=>{
-//     console.log(req);
-//     res.send('Hello World');
-// }
-
-const login = (req: any, res: any) => {
+const login = async (req: any, res: any) => {
   console.log("Login route hit");
 
-  const redisClient = redisClientInit();
-  // console.log(req);
-
   const username = req.body.username;
-  const user: userTypes = { name: username } as object as userTypes;
+  const user: userTypes = { username: username } as userTypes;
+
+  if (user === null)
+    res
+      .status(401)
+      .json({ status: false, message: "username or password is not valid." });
 
   const accessToken = generateAccessToken(user);
   const refreshToken = generateRefreshToken(user);
-  redisClient.rPush("refresh-tokens", refreshToken);
-  redisClient.expire("refresh-tokens", 60); //in milisecs
 
-  res.json({ accessToken: accessToken, refreshToken: refreshToken });
+  return res.json({
+    status: true,
+    message: "login success",
+    data: { accessToken, refreshToken },
+  });
 };
 
 export default login;

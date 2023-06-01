@@ -1,10 +1,15 @@
-import redisClientInit from "@config/redisConfig";
+import redisClient from "@config/redisConfig";
 
 const logoutController = async (req: any, res: any) => {
-  const redisClient = redisClientInit();
-  redisClient.del("refresh-tokens");
 
-  res.send("Logged out successfully");
+    console.log("Logout route hit");
+    const username = req.userData.username;
+    const token = req.token;
+    // remove the refresh token
+    await redisClient.del(username);
+    
+    return res.json({status: true, message: "logout successful"});
+
 };
 
 export default logoutController;

@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import authRoutes from "@routes/auth";
 import homeRoutes from "@routes/home";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 require("dotenv").config();
 
 const app = express();

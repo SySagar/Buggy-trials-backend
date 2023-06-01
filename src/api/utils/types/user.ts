@@ -1,5 +1,5 @@
 interface userType {
-  user: object;
+  username: string;
 }
 
 export default userType;

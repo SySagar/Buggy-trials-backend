@@ -1,10 +1,6 @@
-import { RedisClientType } from "redis";
 import * as redis from "redis";
 
-const redisClientInit = () => {
-  const redisClient = redis.createClient();
-  redisClient.connect();
-  return redisClient;
-};
+const redisClient = redis.createClient();
+redisClient.connect();
 
-export default redisClientInit;
+export default redisClient;
