@@ -1,5 +1,4 @@
 import jwt from "jsonwebtoken";
-import redisClient from "@config/redisConfig";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -39,14 +38,14 @@ function verifyRefreshToken(req: any, res: any, next: () => void) {
 
 
     //inaccessible now
-    const refreshTokenStored = redisClient.get("sagar");
-    if (refreshTokenStored === null)
-      return res
-        .status(401)
-        .json({
-          status: false,
-          message: "Invalid request. Token is not in store.",
-        });
+    // const refreshTokenStored = redisClient.get("sagar");
+    // if (refreshTokenStored === null)
+    //   return res
+    //     .status(401)
+    //     .json({
+    //       status: false,
+    //       message: "Invalid request. Token is not in store.",
+    //     });
 
     // next();
   } catch (error) {

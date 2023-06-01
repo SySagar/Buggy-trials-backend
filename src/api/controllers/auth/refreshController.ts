@@ -1,11 +1,12 @@
 import { generateAccessToken } from "@utils/generateToken";
+import userType from "@utils/types/user";
 
 const refreshController = async (req: any, res: any) => {
   console.log("Refresh route hit");
 
-  const username = req.userData.username;
-  console.log(username);
-  const user = { username: username };
+  const userEmail = req.userData.userEmail;
+  console.log(userEmail);
+  const user = { userEmail: userEmail } as userType;
   const accessToken = generateAccessToken(user);
 
   res.json({

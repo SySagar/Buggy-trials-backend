@@ -1,7 +1,6 @@
-import express from "express";
 
 interface userType {
-  username: string;
+  userEmail: string;
 }
 
 export default userType;
