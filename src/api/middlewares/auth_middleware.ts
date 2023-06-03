@@ -8,6 +8,7 @@ function verifyToken(req: any, res: any, next:  () => void) {
     const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
     req.userData = decoded;
     req.token = token;
+    console.log(decoded);
     console.log(req.userData);
     next();
   }catch(error){

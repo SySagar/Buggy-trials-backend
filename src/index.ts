@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import authRoutes from "@routes/auth";
 import homeRoutes from "@routes/home";
+import dashboardRoutes from "@routes/dashboard";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require("dotenv").config();
 
@@ -15,6 +16,7 @@ app.get("/", (req, res) => {
 
 app.use("/auth", authRoutes);
 app.use("/home", homeRoutes);
+app.use("/dashboard", dashboardRoutes);
 
 app.listen(5000, () => {
   console.log("🚀 Server running at port 5000");

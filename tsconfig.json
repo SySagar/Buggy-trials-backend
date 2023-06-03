@@ -13,6 +13,7 @@
       "@routes/*": ["./api/routes/*"],
       "@services/*": ["./api/services/*"],
       "@middlewares/*": ["./api/middlewares/*"],
+      "@repository/*": ["./api/repository/*"],
       "@config/*": ["./config/*"],
       "@utils/*": ["./api/utils/*"],
       "@/*": ["./api/*"]
