@@ -24,6 +24,7 @@
     "prettier": "^2.8.8",
     "prisma": "^4.15.0",
     "redis": "^4.6.7",
+    "socket.io": "^4.6.2",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0"
   },
